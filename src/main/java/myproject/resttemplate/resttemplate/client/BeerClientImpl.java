@@ -20,9 +20,8 @@ public class BeerClientImpl implements BeerClient {
 
     private final RestTemplateBuilder restTemplateBuilder;
 
-    private static final String BASE_URL = "http://localhost:8080";
-    private static final String GET_BEER_PATH = "/api/v1/beer";
-    private static final String GET_BEER_BY_ID_PATH = GET_BEER_PATH + "/{beerID}";
+    public static final String GET_BEER_PATH = "/api/v1/beer";
+    public static final String GET_BEER_BY_ID_PATH = GET_BEER_PATH + "/{beerID}";
 
     @Override
     public Page<BeerDTO> listBeers() {
