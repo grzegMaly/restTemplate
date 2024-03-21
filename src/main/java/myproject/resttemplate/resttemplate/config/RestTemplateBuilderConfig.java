@@ -13,6 +13,12 @@ public class RestTemplateBuilderConfig {
     @Value("${rest.template.rootUrl}")
     String rootUrl;
 
+    @Value("${rest.template.username}")
+    String username;
+
+    @Value("${rest.template.password}")
+    String password;
+
 
     //Wszędzie gdzie restTemplate będzie używać URI zostanie w pierwszej kolejności użyte to utworzone tutaj
     @Bean //Nadpisanie domyślnie buildera w springu
@@ -27,6 +33,12 @@ public class RestTemplateBuilderConfig {
         DefaultUriBuilderFactory uriBuilderFactory =
                 new DefaultUriBuilderFactory(rootUrl);
 
-        return builder.uriTemplateHandler(uriBuilderFactory);
+        /**
+         * Napisanie builder.basicAuthentication("user1", "password") nie zadziała
+         * należy utworzyć nową instancję z istniejącego już builder
+         */
+        RestTemplateBuilder builderWithAuth = builder.basicAuthentication(username, password);
+
+        return builderWithAuth.uriTemplateHandler(uriBuilderFactory);
     }
 }
