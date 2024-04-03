@@ -1,1 +1,1 @@
-Client Level for project in MyBeerRestProject repositorium. To proper work, MyBeerRestProject must be launched.
+Client Level for project in MyBeerRestProject and MyBeerRestProjectWithBaseAuth repositories. To proper work, one of them must be launched.
